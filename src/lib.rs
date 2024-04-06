@@ -1,0 +1,42 @@
+//! `quad_gk` provids numerical integration methods based on Gauss-Kronrod quadrature rule.
+//! This crate is intended for low dimensional (1d - 4d) integration.
+//!
+//! # Example
+//! ```
+//! use quad_gk::{quad_gk_2d, Integral, GK21};
+//!
+//! let integral: Integral = quad_gk_2d(
+//!     |x, y| (-x.powi(2) - y.powi(4) / 5.0),
+//!     (0.0, |_| 0.0),
+//!     (5.0, |x| x.powf(1.5)),
+//!     (GK21, GK21),
+//! );
+//!
+//! // estimated approximation error is smaller than 1e-6 or 1ULP.
+//! assert!(integral.is_ok_by(1e-6, 1))
+//! ````
+
+mod coef;
+mod integral;
+mod quad;
+
+pub use coef::*;
+pub use integral::*;
+pub use quad::*;
+
+#[cfg(test)]
+mod tests {
+    use crate::{quad_gk_2d, Integral, GK21};
+
+    #[test]
+    fn test() {
+        let integral: Integral = quad_gk_2d(
+            |x, y| (-x.powi(2) - y.powi(4) / 5.0),
+            (0.0, |_| 0.0),
+            (5.0, |x| x.powf(1.5)),
+            (GK21, GK21),
+        );
+
+        assert!(integral.is_ok_by(1e-6, 1))
+    }
+}
