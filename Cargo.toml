@@ -1,11 +1,20 @@
 [package]
 name = "quad_gk"
 version = "0.1.0"
+author = "qdot3"
 edition = "2021"
 
-description = "Pure rust numerical integration library by Gauss Kronrod quadrature rule."
+description = "Pure rust numerical integration library based on Gauss Kronrod quadrature rule."
 
-tags = ["math", "numerical integration", ]
+documentation = "https://docs.rs/quad_gk/"
+homepage = "https://crates.io/crates/quad_gk"
+repository = "https://github.com/qdot3/quad_gk.git"
+
+readme = "README.md"
+
+keywords = ["math", "numerical integration"]
+categories = ["science"]
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
