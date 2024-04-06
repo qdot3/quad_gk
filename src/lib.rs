@@ -14,7 +14,7 @@
 //!
 //! // estimated approximation error is smaller than 1e-6 or 1ULP.
 //! assert!(integral.is_ok_by(1e-6, 1))
-//! ````
+//! ```
 
 mod coef;
 mod integral;
