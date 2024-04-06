@@ -3,7 +3,7 @@
 Numerical Integration library based on Gauss Kronrod quadrature rule.
 
 # Example
-```
+```rust
 use quad_gk::{quad_gk_2d, Integral, GK21};
 
 let integral: Integral = quad_gk_2d(
