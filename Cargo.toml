@@ -1,6 +1,6 @@
 [package]
 name = "quad_gk"
-version = "0.1.0"
+version = "0.1.1"
 author = "qdot3"
 edition = "2021"
 
@@ -12,7 +12,7 @@ repository = "https://github.com/qdot3/quad_gk.git"
 
 readme = "README.md"
 
-keywords = ["math", "integral"]
+keywords = ["math", "integral", "quadrature"]
 categories = ["science"]
 license = "MIT"
 
