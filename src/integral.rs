@@ -19,7 +19,7 @@ impl Integral {
         approx_eq!(f64, self.value, self.ref_value)
     }
 
-    /// Returns true, if approximation error meets given condition.
+    /// Returns true, if estimated approximation error meets given condition.
     pub fn is_ok_by(&self, epsilon: f64, ulps: i64) -> bool {
         approx_eq!(f64, self.value, self.ref_value, F64Margin { epsilon, ulps })
     }
