@@ -19,7 +19,7 @@ assert!(integral.is_ok_by(1e-6, 1))
 ```
 
 ## Pursue precision
-`Integral` suports `+` and `+=` opertor.
+`Integral` supports `+` and `+=` opertor.
 ```rust
 use quad_gk::{quad_gk_1d, Integral, GK81, GK91};
 
