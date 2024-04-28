@@ -12,7 +12,7 @@ repository = "https://github.com/qdot3/quad_gk.git"
 
 readme = "README.md"
 
-keywords = ["math", "integral", "quadrature", "multipl integral"]
+keywords = ["math", "integral", "quadrature"]
 categories = ["science"]
 license = "MIT"
 
