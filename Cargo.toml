@@ -1,6 +1,6 @@
 [package]
 name = "quad_gk"
-version = "0.1.1"
+version = "1.0.0"
 author = "qdot3"
 edition = "2021"
 
@@ -19,4 +19,4 @@ license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-float-cmp = "0.9.0"
+rayon = "1.10.0"

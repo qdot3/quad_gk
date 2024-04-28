@@ -1,34 +1,37 @@
 # quad_gk
 
-Numerical Integration library based on Gauss Kronrod quadrature rule.
-This crate is intended for low-dimensional (1d - 4d) integration.
+Fast and precise numerical integration library based on Gauss Kronrod quadrature rule.
 
 ## Basic usage
 ```rust
-use quad_gk::{quad_gk_2d, Integral, GK21};
+use std::sync::Arc;
 
-let integral: Integral = quad_gk_2d(
-    |x, y| (-x.powi(2) - y.powi(4) / 5.0),
-    (0.0, |_| 0.0),
-    (5.0, |x| x.powf(1.5)),
-    (GK21, GK21),
+use quad_gk::*;
+
+let integral: Integral = quad_gk!(
+    Arc::new(|x: f64| x.sin() * (-x).exp()),
+    0.0..100.0,
 );
 
-// estimated approximation error is smaller than 1e-6 or 1ULP.
-assert!(integral.is_ok_by(1e-6, 1))
+// estimated relative error in numerical integration is smaller than 1e-6 by default.
+assert!(integral.is_ok(1e-6))
 ```
 
-## Pursue precision
-`Integral` suports `+` and `+=` opertor.
+## More precise calculation
 ```rust
-use quad_gk::{quad_gk_1d, Integral, GK81, GK91};
+use std::sync::Arc;
 
-let integral: Integral = quad_gk_1d(|x| x.sin(), (0.0), (200.0), (GK91));
-// poor accuracy
-assert!(!integral.is_ok_by(1e-6, 1));
+use quad_gk::*;
 
-let integral: Integral = quad_gk_1d(|x| x.sin(), (0.0), (100.0), (GK81))
-    + quad_gk_1d(|x| x.sin(), (100.0), (200.0), (GK81));
-// good accuracy
-assert!(integral.is_ok_by(1e-6, 1))
+let integral: Integral = quad_gk!(
+    Arc::new(|x: f64| x.sin() * (-x).exp()),
+    0.0..100.0,
+    rel_tol=1e-14,
+    max_interval_count=1_000_000,
+    coef=GK91,
+);
+
+// estimated relative error in numerical integration is smaller than 1e-14!
+assert!(integral.is_ok(1e-14))
 ```
+
