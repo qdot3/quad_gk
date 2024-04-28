@@ -19,9 +19,3 @@ pub use gk61::GK61;
 pub use gk71::GK71;
 pub use gk81::GK81;
 pub use gk91::GK91;
-
-/// Trait to provide nodes and weights of Gauss Kronrod quadrature rule.
-pub trait QuadGKCoef<const NX: usize> {
-    /// Returns an array of `(Node, Weight_GK, Weight_G)`, where `Node` is normalized to [-1, 1].
-    fn quad_gk_coef(&self) -> [(f64, f64, Option<f64>); NX];
-}

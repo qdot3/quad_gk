@@ -1,4 +1,4 @@
-use crate::{Integral, QuadGKCoef};
+use crate::{quadgk_1d, Integral, QuadConfig, QuadGKCoef};
 
 /// 2d numerical integration by Gauss-Kronrod quadrature rule.
 pub fn quad_gk_2d<const NX: usize, const NY: usize>(
