@@ -18,7 +18,7 @@ let integral: Integral = quad_gk!(
 assert!(integral.is_ok(1e-6))
 ```
 
-## More precise calculatino
+## More precise calculation
 ```rust
 use std::sync::Arc;
 
